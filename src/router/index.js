@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
 
 Vue.use(VueRouter)
 
@@ -11,7 +10,8 @@ export default new VueRouter({
         {
             path: '/',
             name: 'Home',
-            component: Home
+            meta: {layout: 'main'},
+            component: () => import('../views/Home')
         },
         {
             path: '/categories',
@@ -20,10 +20,10 @@ export default new VueRouter({
             component: () => import('../views/Categories')
         },
         {
-            path: '/detail-record',
-            name: 'DetailRecord',
+            path: '/detail',
+            name: 'Detail',
             meta: {layout: 'main'},
-            component: () => import('../views/DetailRecord')
+            component: () => import('../views/Detail')
         },
         {
             path: '/history',
